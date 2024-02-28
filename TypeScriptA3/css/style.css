@@ -4,7 +4,9 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
-
+header h1{
+    color: #fff;
+}
 header, footer {
     background-color: #333;
     color: white;
