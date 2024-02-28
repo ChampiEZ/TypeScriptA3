@@ -19,12 +19,10 @@ Suivez ces étapes pour télécharger et exécuter le projet Vite :
    git clone https://github.com/votre-utilisateur/votre-projet.git
    ```
 
-   Remplacez `votre-utilisateur` et `votre-projet` par votre nom d'utilisateur GitHub et le nom de votre projet, respectivement.
-
 2. **Accédez au répertoire du projet** :
 
    ```bash
-   cd votre-projet
+   cd TypeScriptA3
    ```
 
 3. **Installez les dépendances** :
@@ -38,10 +36,6 @@ Suivez ces étapes pour télécharger et exécuter le projet Vite :
    ```bash
    npm run dev
    ```
-
-5. **Accédez à l'application dans votre navigateur** :
-
-   Ouvrez votre navigateur et accédez à [http://localhost:3000](http://localhost:3000).
 
 ## Autres commandes disponibles
 
