@@ -47,3 +47,47 @@ class TaskManager {
 document.addEventListener("DOMContentLoaded", function () {
     const taskManager = new TaskManager();
 });
+
+// Récupérer le bouton "Appliquer Filtre"
+let applyFilterButton = document.getElementById('applyFilter') as HTMLButtonElement;
+
+// Ajouter un gestionnaire d'événements au clic sur le bouton "Appliquer Filtre"
+applyFilterButton.onclick = () => {
+  // Récupérer la valeur de priorité sélectionnée dans le filtre
+  let priority = (document.getElementById('filterPriority') as HTMLSelectElement).value;
+
+  // Récupérer toutes les tâches
+  let tasks = document.getElementsByClassName('task') as HTMLCollectionOf<HTMLDivElement>;
+
+  // Masquer toutes les tâches par défaut
+  for (let i = 0; i < tasks.length; i++) {
+    tasks[i].style.display = "none";
+  }
+
+  // Afficher les tâches en fonction de la priorité sélectionnée
+  switch (priority) {
+    case "high":
+      showTasksByPriority('high');
+      break;
+    case "low":
+      showTasksByPriority('low');
+      break;
+    case "medium":
+      showTasksByPriority('medium');
+      break;
+    default:
+      // Si aucun filtre selec, on affiche tout
+      for (let i = 0; i < tasks.length; i++) {
+        tasks[i].style.display = "block";
+      }
+      break;
+  }
+};
+
+// Fonction pour afficher les tâches en fonction de la priorité sélectionnée
+function showTasksByPriority(priority: string) {
+  let tasks = document.getElementsByClassName(priority) as HTMLCollectionOf<HTMLDivElement>;
+  for (let i = 0; i < tasks.length; i++) {
+    tasks[i].style.display = "block";
+  }
+}

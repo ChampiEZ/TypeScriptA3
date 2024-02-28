@@ -36,3 +36,41 @@ var TaskManager = /** @class */ (function () {
 document.addEventListener("DOMContentLoaded", function () {
     var taskManager = new TaskManager();
 });
+// Récupérer le bouton "Appliquer Filtre"
+var applyFilterButton = document.getElementById('applyFilter');
+// Ajouter un gestionnaire d'événements au clic sur le bouton "Appliquer Filtre"
+applyFilterButton.onclick = function () {
+    // Récupérer la valeur de priorité sélectionnée dans le filtre
+    var priority = document.getElementById('filterPriority').value;
+    // Récupérer toutes les tâches
+    var tasks = document.getElementsByClassName('task');
+    // Masquer toutes les tâches par défaut
+    for (var i = 0; i < tasks.length; i++) {
+        tasks[i].style.display = "none";
+    }
+    // Afficher les tâches en fonction de la priorité sélectionnée
+    switch (priority) {
+        case "high":
+            showTasksByPriority('high');
+            break;
+        case "low":
+            showTasksByPriority('low');
+            break;
+        case "medium":
+            showTasksByPriority('medium');
+            break;
+        default:
+            // Si aucun filtre selec, on affiche tout
+            for (var i = 0; i < tasks.length; i++) {
+                tasks[i].style.display = "block";
+            }
+            break;
+    }
+};
+// Fonction pour afficher les tâches en fonction de la priorité sélectionnée
+function showTasksByPriority(priority) {
+    var tasks = document.getElementsByClassName(priority);
+    for (var i = 0; i < tasks.length; i++) {
+        tasks[i].style.display = "block";
+    }
+}
